@@ -60,22 +60,11 @@ exports.createPages = ({ graphql, actions }) => {
 
     const BlogCategories = allWordpressCategory.edges
     BlogCategories.forEach(category => {
-      const postsInCategory = []
-
-      if (BlogPosts && BlogPosts.totalCount > 0) {
-        BlogPosts.forEach(post => {
-          if (post.node.categories.includes(category.node.wordpress_id)) {
-            postsInCategory.push(post.node)
-          }
-        })
-      }
-
       createPage({
         path: category.node.path,
         component: BlogCategoryTemplate,
         context: {
           id: category.node.wordpress_id,
-          posts: postsInCategory,
         },
       })
     })

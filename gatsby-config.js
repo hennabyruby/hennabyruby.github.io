@@ -28,6 +28,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         baseUrl: "hennabyruby.dyzynz.net",

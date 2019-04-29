@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, pageContext }) => (
+const BlogPostTemplate = ({ data }) => (
   <Layout>
     <SEO
       title={data.wordpressCategory.name}
@@ -11,17 +11,21 @@ const BlogPostTemplate = ({ data, pageContext }) => (
     />
     <h1>{data.wordpressCategory.name}</h1>
     <p>{data.wordpressCategory.description}</p>
-    {(pageContext &&
-      pageContext.posts.length &&
-      pageContext.posts.map(post => {
-        return (
-          <article>
-            <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
-          </article>
-        )
-      })) ||
-      ""}
+    <p>
+      <small>
+        There are <span>{data.allWordpressPost.totalCount}</span>{" "}
+        {data.allWordpressPost.totalCount === 1 ? "post" : "posts"} for this
+        category.
+      </small>
+    </p>
+    <hr />
+    {data.allWordpressPost.edges.map(post => (
+      <article>
+        <h2>{post.node.title}</h2>
+        <p>{post.node.excerpt}</p>
+        <a href={post.node.path}>Read the post</a>
+      </article>
+    ))}
   </Layout>
 )
 export default BlogPostTemplate
@@ -31,6 +35,19 @@ export const query = graphql`
     wordpressCategory(wordpress_id: { eq: $id }) {
       name
       description
+    }
+    allWordpressPost(
+      filter: { categories: { elemMatch: { wordpress_id: { in: [$id] } } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          wordpress_id
+          path
+          title
+          excerpt
+        }
+      }
     }
   }
 `

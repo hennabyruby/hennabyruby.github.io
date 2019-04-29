@@ -26,14 +26,13 @@
   },
   "devDependencies": {
     "gatsby-plugin-sitemap": "^2.0.12",
+    "gatsby-plugin-typography": "^2.2.13",
     "gatsby-source-wordpress": "^3.0.57",
     "prettier": "^1.17.0",
+    "react-typography": "^0.16.19",
     "typeface-roboto": "0.0.54",
     "typography": "^0.16.19"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
