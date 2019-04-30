@@ -1,11 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Ruby Idrees – Henna & Face paint artist – Hounslow, West London`,
+    title: `Henna & Face paint by Ruby – Hounslow, West London`,
     description: `Ruby is an artist based in London Borough of Hounslow with years of experience of Henna & face painting and canvas painting in variety of mediums i.e. water, oil & acrylic.`,
     author: `@jabranr`,
+    social: {
+      facebook: "https://www.facebook.com/hennabyruby",
+      instagram: "https://www.instagram.com/hennabyrubylondon",
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,16 +26,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#9a679a`,
-        theme_color: `#9a679a`,
+        background_color: `#e91e63`,
+        theme_color: `#e91e63`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
+        icon: `src/images/henna-by-ruby-logo-square.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -63,6 +62,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

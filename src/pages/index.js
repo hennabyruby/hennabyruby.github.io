@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Layout isHomePage={true}>
     <SEO
       title="Ruby Idrees – Henna & Face paint artist – Hounslow, West London"
       keywords={[

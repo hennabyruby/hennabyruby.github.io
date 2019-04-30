@@ -1,10 +1,11 @@
 import Typography from "typography"
 
 const typography = new Typography({
-  baseFontSize: "16px",
+  baseFontSize: "18px",
   headerWeight: 700,
   bodyWeight: 400,
   boldWeight: 500,
+  headerColor: "#e91e63",
   headerFontFamily: ["Roboto", "Helvetica", "sans-serif"],
   bodyFontFamily: ["Roboto", "Helvetica", "sans-serif"],
   googleFonts: [
@@ -25,5 +26,6 @@ if (process.env.NODE_ENV !== `production`) {
   typography.injectStyles()
 }
 
-export const { scale, rhythm, options } = typography
 export default typography
+export const rhythm = typography.rhythm
+export const scale = typography.scale
