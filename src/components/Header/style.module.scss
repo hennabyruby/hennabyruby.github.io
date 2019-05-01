@@ -54,6 +54,8 @@
     color: #e91e63;
     text-decoration: none;
     position: relative;
+    display: block;
+    padding: 10px 0;
 
     &::after {
       content: "";
@@ -62,7 +64,7 @@
       height: 2px;
       width: 0px;
       right: 0;
-      bottom: -10px;
+      bottom: 0;
       transition: width 200ms ease-in-out;
     }
 
