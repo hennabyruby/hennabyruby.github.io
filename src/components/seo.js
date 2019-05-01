@@ -84,7 +84,19 @@ function SEO({ description, lang, meta, keywords, title }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  keywords: [],
+  keywords: [
+    `henna`,
+    `mendhi`,
+    `bridal henna`,
+    `art`,
+    `glitter tattoos`,
+    `tattoos`,
+    `henna artist in Hounslow`,
+    `henna artist in London`,
+    `henna Hounslow`,
+    `henna Southall`,
+    `henna London`,
+  ],
   description: ``,
 }
 
