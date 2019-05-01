@@ -2,10 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `Henna & Face paint by Ruby | Hounslow, West London`,
     description: `Ruby is an artist based in London Borough of Hounslow with years of experience of Henna & face painting and canvas painting in variety of mediums i.e. water, oil & acrylic.`,
+    siteUrl: `http://hennabyruby.github.io`,
     author: `@jabranr`,
     social: {
-      facebook: "https://www.facebook.com/hennabyruby",
-      instagram: "https://www.instagram.com/hennabyrubylondon",
+      facebook: `https://www.facebook.com/hennabyruby`,
+      instagram: `https://www.instagram.com/hennabyrubylondon`,
     },
   },
   plugins: [
