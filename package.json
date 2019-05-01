@@ -10,6 +10,7 @@
       "email": "hello@jabran.me"
     }
   ],
+  "homepage": "http://hennabyruby.github.io",
   "dependencies": {
     "gatsby": "^2.3.32",
     "gatsby-image": "^2.0.40",
