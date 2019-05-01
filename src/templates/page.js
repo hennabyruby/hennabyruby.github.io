@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo"
 
-const PageTemplate = ({ data }) => (
-  <Layout>
+const PageTemplate = ({ data, ...rest }) => (
+  <Layout {...rest}>
     <SEO
       title={data.wordpressPage.title}
       description={data.wordpressPage.excerpt}

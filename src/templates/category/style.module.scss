@@ -1,0 +1,29 @@
+.label {
+  font-size: small;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.heading {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  padding: 2px 20px;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #e91e63;
+    z-index: -1;
+    transform: rotate(-3deg);
+  }
+}

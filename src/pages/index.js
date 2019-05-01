@@ -4,8 +4,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({ data }) => (
-  <Layout isHomePage={true}>
+const IndexPage = ({ data, ...rest }) => (
+  <Layout isHomePage={true} {...rest}>
     <SEO
       title="Ruby Idrees – Henna & Face paint artist – Hounslow, West London"
       keywords={[

@@ -9,7 +9,7 @@ import React, { memo } from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from "./Header"
+import Header from "./header"
 
 const Layout = ({ children, ...rest }) => (
   <StaticQuery

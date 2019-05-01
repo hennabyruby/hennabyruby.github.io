@@ -4,11 +4,14 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage = () => (
-  <Layout>
+const SecondPage = props => (
+  <Layout {...props}>
     <SEO title="About Henna & Face paint by Ruby" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
+    <h1>About Ruby</h1>
+    <p>
+      Ruby is an experienced artist specialized in Henna and face painting with
+      an experience of over 10 and 3 years respectively.
+    </p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )

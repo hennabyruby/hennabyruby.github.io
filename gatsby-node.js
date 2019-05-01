@@ -3,11 +3,9 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const BlogPostTemplate = path.resolve("./src/templates/BlogPostTemplate.js")
-  const BlogCategoryTemplate = path.resolve(
-    "./src/templates/BlogCategoryTemplate.js"
-  )
-  const BlogPageTemplate = path.resolve("./src/templates/BlogPageTemplate.js")
+  const PostTemplate = path.resolve("./src/templates/post.js")
+  const CategoryTemplate = path.resolve("./src/templates/category/index.js")
+  const PageTemplate = path.resolve("./src/templates/page.js")
 
   return graphql(`
     {
@@ -51,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
     BlogPosts.forEach(post => {
       createPage({
         path: post.node.path,
-        component: BlogPostTemplate,
+        component: PostTemplate,
         context: {
           id: post.node.wordpress_id,
         },
@@ -62,7 +60,7 @@ exports.createPages = ({ graphql, actions }) => {
     BlogCategories.forEach(category => {
       createPage({
         path: category.node.path,
-        component: BlogCategoryTemplate,
+        component: CategoryTemplate,
         context: {
           id: category.node.wordpress_id,
         },
@@ -73,7 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
     Pages.forEach(page => {
       createPage({
         path: page.node.path,
-        component: BlogPageTemplate,
+        component: PageTemplate,
         context: {
           id: page.node.wordpress_id,
         },
