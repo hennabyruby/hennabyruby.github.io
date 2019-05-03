@@ -15,7 +15,6 @@ const PageTemplate = ({ data, ...rest }) => (
 )
 
 export default PageTemplate
-
 export const query = graphql`
   query($id: Int!) {
     wordpressPage(wordpress_id: { eq: $id }) {

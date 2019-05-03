@@ -25,12 +25,12 @@ const CategoryTemplate = ({ data, ...rest }) => (
       category.
     </p>
     {data.allWordpressPost.edges.map(post => (
-      <Post post={post} />
+      <Post key={post.node.wordpress_id} post={post} />
     ))}
   </Layout>
 )
-export default CategoryTemplate
 
+export default CategoryTemplate
 export const query = graphql`
   query($id: Int!) {
     wordpressCategory(wordpress_id: { eq: $id }) {
@@ -43,12 +43,19 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          wordpress_id
           title
           excerpt
           content
           slug
           path
           date(formatString: "MMMM DD, YYYY")
+          tags {
+            wordpress_id
+            name
+            slug
+            path
+          }
         }
       }
     }

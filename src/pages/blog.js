@@ -13,7 +13,7 @@ const BlogPage = props => {
       <SEO title="Blog" />
       <section>
         {data.allWordpressPost.edges.map(post => (
-          <Post post={post} />
+          <Post key={post.node.wordpress_id} post={post} />
         ))}
       </section>
     </Layout>
@@ -27,18 +27,25 @@ export const query = graphql`
     allWordpressPost {
       edges {
         node {
+          wordpress_id
           title
           excerpt
           content
           slug
           path
+          date(formatString: "MMMM DD, YYYY")
           categories {
             wordpress_id
             name
             slug
             path
           }
-          date(formatString: "MMMM DD, YYYY")
+          tags {
+            wordpress_id
+            name
+            slug
+            path
+          }
         }
       }
     }
