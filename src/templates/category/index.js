@@ -25,7 +25,7 @@ const CategoryTemplate = ({ data, ...rest }) => (
       category.
     </p>
     {data.allWordpressPost.edges.map(post => (
-      <Post key={post.node.wordpress_id} post={post} />
+      <Post key={post.node.wordpress_id} post={post.node} />
     ))}
   </Layout>
 )

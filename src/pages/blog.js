@@ -13,7 +13,7 @@ const BlogPage = props => {
       <SEO title="Blog" />
       <section>
         {data.allWordpressPost.edges.map(post => (
-          <Post key={post.node.wordpress_id} post={post} />
+          <Post key={post.node.wordpress_id} post={post.node} />
         ))}
       </section>
     </Layout>
