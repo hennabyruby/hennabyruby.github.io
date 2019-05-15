@@ -1,12 +1,16 @@
 import React, { Fragment, memo } from "react"
 import { Link } from "gatsby"
 import readingTime from "reading-time"
+import Disqus from "gatsby-plugin-disqus"
 
 import SEO from "../../components/seo"
 import Categories from "./categories"
 import Tags from "./tags"
+import config from "../../config"
 
 import style from "./style.module.scss"
+
+const { APP_HOSTNAME } = config()
 
 const PostTitle = ({ title, isSinglePost = false }) => {
   return isSinglePost ? (
@@ -49,8 +53,10 @@ const Post = ({ post, isSinglePost = false }) => {
     excerpt,
     slug,
     path,
+    link,
     categories,
     tags,
+    comment_status,
   } = post
   const { text: timeToRead } = readingTime(content || "")
 
@@ -61,9 +67,16 @@ const Post = ({ post, isSinglePost = false }) => {
           <SEO title={title} description={excerpt} />
           <PostTitle title={title} isSinglePost={isSinglePost} />
           <PostMetadata date={date} timeToRead={timeToRead} />
-          {categories && <Categories cats={categories} />}
+          {categories && <Categories cats={categories} isSinglePost />}
           <PostContent content={content} />
-          {tags && <Tags tags={tags} />}
+          {tags && <Tags tags={tags} isSinglePost />}
+          {comment_status && comment_status === "open" && (
+            <Disqus
+              identifier={wordpress_id}
+              title={title}
+              url={`${APP_HOSTNAME}${path}`}
+            />
+          )}
         </Fragment>
       ) : (
         <Fragment>
@@ -75,6 +88,7 @@ const Post = ({ post, isSinglePost = false }) => {
             </div>
           </Link>
           {categories && <Categories cats={categories} />}
+          {!categories && tags && <Tags tags={tags} />}
         </Fragment>
       )}
     </article>

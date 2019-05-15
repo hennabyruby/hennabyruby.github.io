@@ -6,28 +6,26 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Post from "../../components/post"
 
-const CategoryTemplate = ({ data, ...rest }) => {
+const TagTemplate = ({ data, ...rest }) => {
   const { totalCount } = data.allWordpressPost
 
   return (
     <Layout {...rest}>
       <SEO
-        title={data.wordpressCategory.name}
-        description={data.wordpressCategory.description}
+        title={data.wordpressTag.name}
+        description={data.wordpressTag.description}
       />
-      <p className={style.label}>Category</p>
-      <h1 className={style.heading}>{data.wordpressCategory.name}</h1>
-      {data.wordpressCategory.description && (
+      <p className={style.label}>Tag</p>
+      <h1 className={style.heading}>{data.wordpressTag.name}</h1>
+      {data.wordpressTag.description && (
         <p
-          dangerouslySetInnerHTML={{
-            __html: data.wordpressCategory.description,
-          }}
+          dangerouslySetInnerHTML={{ __html: data.wordpressTag.description }}
         />
       )}
       <p>
         {`There ${totalCount === 1 ? "is" : "are"} ${totalCount} ${
           totalCount === 1 ? "post" : "posts"
-        } for this category.`}
+        } for this tag.`}
       </p>
       {data.allWordpressPost.edges.map(post => (
         <Post key={post.node.wordpress_id} post={post.node} />
@@ -36,15 +34,15 @@ const CategoryTemplate = ({ data, ...rest }) => {
   )
 }
 
-export default CategoryTemplate
+export default TagTemplate
 export const query = graphql`
   query($id: Int!) {
-    wordpressCategory(wordpress_id: { eq: $id }) {
+    wordpressTag(wordpress_id: { eq: $id }) {
       name
       description
     }
     allWordpressPost(
-      filter: { categories: { elemMatch: { wordpress_id: { in: [$id] } } } }
+      filter: { tags: { elemMatch: { wordpress_id: { in: [$id] } } } }
     ) {
       totalCount
       edges {

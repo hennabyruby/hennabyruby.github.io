@@ -1,10 +1,11 @@
-import React, { memo } from "./node_modules/react"
+import React, { memo } from "react"
+import { Link } from "gatsby"
 
 import style from "./style.module.scss"
 
-const Categories = ({ cats }) => {
+const Categories = ({ cats, isSinglePost = false }) => {
   return (
-    <p>
+    <div className={isSinglePost ? style.singleView : ""}>
       {cats.map(cat => (
         <Link
           key={`${cat.wordpress_id}-${cat.slug}`}
@@ -14,7 +15,7 @@ const Categories = ({ cats }) => {
           {cat.name}
         </Link>
       ))}
-    </p>
+    </div>
   )
 }
 

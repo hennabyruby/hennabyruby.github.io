@@ -24,7 +24,10 @@ export const query = graphql`
       title
       content
       excerpt
+      path
+      link
       date(formatString: "MMMM DD, YYYY")
+      comment_status
       categories {
         wordpress_id
         name
