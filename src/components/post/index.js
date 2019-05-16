@@ -53,7 +53,6 @@ const Post = ({ post, isSinglePost = false }) => {
     excerpt,
     slug,
     path,
-    link,
     categories,
     tags,
     comment_status,
