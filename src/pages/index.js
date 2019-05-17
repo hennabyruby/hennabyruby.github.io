@@ -24,8 +24,8 @@ const IndexPage = ({ data, ...rest }) => (
       ]}
     />
     <section>
-      {data.allWordpressPost.edges.map(post => (
-        <Post key={post.node.wordpress_id} post={post.node} />
+      {data.allWordpressPost.edges.map(({ node }) => (
+        <Post key={node.title} post={node} />
       ))}
     </section>
   </Layout>

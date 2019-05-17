@@ -31,7 +31,7 @@ const Header = ({ siteTitle, location }) => {
       <nav role="navigation" className={style.nav}>
         <ul className={style.navList}>
           {navManu.map(navItem => (
-            <li>
+            <li key={navItem.title}>
               <Link
                 className={pathname === navItem.path ? style.active : ""}
                 to={navItem.path}

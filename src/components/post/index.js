@@ -51,7 +51,6 @@ const Post = ({ post, isSinglePost = false }) => {
     date,
     content,
     excerpt,
-    slug,
     path,
     categories,
     tags,
@@ -60,7 +59,7 @@ const Post = ({ post, isSinglePost = false }) => {
   const { text: timeToRead } = readingTime(content || "")
 
   return (
-    <article key={`${wordpress_id}-${slug}`} className={style.article}>
+    <article className={style.article}>
       {isSinglePost ? (
         <Fragment>
           <SEO title={title} description={excerpt} />

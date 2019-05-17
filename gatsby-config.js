@@ -1,14 +1,8 @@
-const siteUrl = process.env.GATSBY_APP_HOSTNAME
-const replacementUrl =
-  process.env.NODE_ENV === "production"
-    ? process.env.GATSBY_APP_HOSTNAME
-    : "http://localhost:8000"
-
 module.exports = {
   siteMetadata: {
     title: `Henna & Face paint by Ruby | Hounslow, West London`,
     description: `Ruby is an artist based in London Borough of Hounslow with years of experience of Henna & face painting and canvas painting in variety of mediums i.e. water, oil & acrylic.`,
-    siteUrl,
+    siteUrl: process.env.GATSBY_APP_HOSTNAME,
     author: `@jabranr`,
     social: {
       facebook: `https://www.facebook.com/hennabyruby`,
@@ -50,8 +44,8 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://hennabyruby.dyzynz.net",
-          replacementUrl,
+          sourceUrl: "https://hennabyruby.dyzynz.net",
+          replacementUrl: process.env.GATSBY_APP_HOSTNAME,
         },
         concurrentRequests: 10,
         includedRoutes: [
