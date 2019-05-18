@@ -8,13 +8,11 @@ import style from "./style.module.scss"
 const Tags = ({ tags, isSinglePost = false }) => {
   return (
     <div className={isSinglePost ? style.singleView : ""}>
-      {isSinglePost && (
-        <img
-          src={tags.length === 1 ? tagIcon : tagsIcon}
-          alt=""
-          className={style.icon}
-        />
-      )}
+      <img
+        src={tags.length === 1 ? tagIcon : tagsIcon}
+        alt=""
+        className={style.icon}
+      />
       {tags.map(tag => (
         <Link
           key={`${tag.wordpress_id}-${tag.slug}`}

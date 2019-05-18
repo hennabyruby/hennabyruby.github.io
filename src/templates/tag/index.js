@@ -54,12 +54,6 @@ export const query = graphql`
           slug
           path
           date(formatString: "MMMM DD, YYYY")
-          tags {
-            wordpress_id
-            name
-            slug
-            path
-          }
         }
       }
     }
