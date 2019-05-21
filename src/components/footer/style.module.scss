@@ -1,7 +1,18 @@
 .footer {
-  background-color: #cc9ac6;
+  background-color: #333;
+  color: #f8f8f8;
   font-size: small;
   padding: 1rem;
+
+  a {
+    color: #e91e63;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
 }
 
 .links {

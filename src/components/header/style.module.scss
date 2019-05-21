@@ -1,5 +1,6 @@
 .header {
   margin: 1rem auto 2rem;
+  width: 100%;
   max-width: 960px;
   padding: 2rem 1.0875rem;
   display: grid;
@@ -16,7 +17,7 @@
   height: 47px;
   font-size: 1px;
   text-indent: -1000%;
-  justify-self: center;
+  justify-self: start;
 
   a {
     text-decoration: none;

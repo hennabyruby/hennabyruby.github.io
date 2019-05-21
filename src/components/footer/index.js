@@ -1,4 +1,5 @@
 import React, { memo } from "react"
+import { Link } from "gatsby"
 
 import style from "./style.module.scss"
 
@@ -25,12 +26,14 @@ const Footer = () => {
             Instagram
           </a>
         </li>
+        <li>
+          <Link to="/privacy-policy">Privacy</Link>
+        </li>
+        <li>
+          <Link to="/terms-conditions">Terms &amp; Conditions</Link>
+        </li>
       </ul>
-      <ul className={style.links}>
-        <li>Public Liability Insurance</li>
-        <li>Privacy</li>
-        <li>Terms &amp; Conditions</li>
-      </ul>
+      <p>The work is covered by Public Liability Insurance.</p>
     </footer>
   )
 }

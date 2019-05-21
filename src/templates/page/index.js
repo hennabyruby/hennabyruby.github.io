@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 
 const PageTemplate = ({ data, ...rest }) => (
   <Layout {...rest}>
@@ -9,7 +9,7 @@ const PageTemplate = ({ data, ...rest }) => (
       title={data.wordpressPage.title}
       description={data.wordpressPage.excerpt}
     />
-    <h1>{data.wordpressPage.title}</h1>
+    <h1 dangerouslySetInnerHTML={{ __html: data.wordpressPage.title }} />
     <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
   </Layout>
 )
