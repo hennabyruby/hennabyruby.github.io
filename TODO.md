@@ -1,4 +1,3 @@
-- add footer
 
 - add home page
 - add contact content
