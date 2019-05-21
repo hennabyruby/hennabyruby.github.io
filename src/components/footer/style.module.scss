@@ -1,0 +1,18 @@
+.footer {
+  background-color: #cc9ac6;
+  font-size: small;
+  padding: 1rem;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+
+  li {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+}
