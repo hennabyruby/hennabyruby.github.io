@@ -5,7 +5,7 @@ const typography = new Typography({
   headerWeight: 700,
   bodyWeight: 400,
   boldWeight: 500,
-  headerColor: "#e91e63",
+  headerColor: "var(--hbr-shocking-pink)",
   headerFontFamily: ["Roboto", "Helvetica", "sans-serif"],
   bodyFontFamily: ["Roboto", "Helvetica", "sans-serif"],
   googleFonts: [
@@ -16,7 +16,16 @@ const typography = new Typography({
   ],
   overrideStyles: () => ({
     body: {
-      backgroundColor: "#f8f8f8",
+      backgroundColor: "var(--hbr-white)",
+    },
+    ":root": {
+      "--hbr-pink": "#cc9ac6",
+      "--hbr-dark-pink": "#c1134e",
+      "--hbr-shocking-pink": "#e91e63",
+      "--hbr-white": "#f8f8f8",
+      "--hbr-gray": "#888",
+      "--hbr-light-gray": "#ddd",
+      "--hbr-henna-green": "#dd7",
     },
   }),
 })

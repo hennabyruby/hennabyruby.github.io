@@ -2,14 +2,14 @@
   font-size: small;
   margin-bottom: 5px;
   text-transform: uppercase;
-  color: #888;
+  color: var(--hbr-gray);
   letter-spacing: 1px;
 }
 
 .heading {
   display: inline-block;
   position: relative;
-  color: #fff;
+  color: white;
   padding: 2px 20px;
   z-index: 1;
 
@@ -22,7 +22,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    background-color: #e91e63;
+    background-color: var(--hbr-shocking-pink);
     z-index: -1;
     transform: rotate(-3deg);
   }

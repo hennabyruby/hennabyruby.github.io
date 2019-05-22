@@ -69,11 +69,13 @@ const Post = ({ post, isSinglePost = false }) => {
           <PostContent content={content} />
           {tags && <Tags tags={tags} isSinglePost />}
           {comment_status && comment_status === "open" && (
-            <Disqus
-              identifier={wordpress_id}
-              title={title}
-              url={`${APP_HOSTNAME}${path}`}
-            />
+            <div className={style.disqus}>
+              <Disqus
+                identifier={wordpress_id}
+                title={title}
+                url={`${APP_HOSTNAME}${path}`}
+              />
+            </div>
           )}
         </Fragment>
       ) : (

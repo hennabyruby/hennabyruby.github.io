@@ -1,11 +1,10 @@
 .footer {
-  background-color: #333;
-  color: #f8f8f8;
+  background-color: var(--hbr-pink);
   font-size: small;
   padding: 1rem;
 
   a {
-    color: #e91e63;
+    color: var(--hbr-shocking-pink);
     text-decoration: none;
 
     &:hover,

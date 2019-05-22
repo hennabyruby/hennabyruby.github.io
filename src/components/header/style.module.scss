@@ -52,7 +52,7 @@
   }
 
   a {
-    color: #e91e63;
+    color: var(--hbr-shocking-pink);
     text-decoration: none;
     position: relative;
     display: block;
@@ -71,7 +71,7 @@
 
     &.active,
     &:hover {
-      color: darken(#e91e63, 10%);
+      color: var(--hbr-dark-pink);
 
       &::after {
         width: 100%;

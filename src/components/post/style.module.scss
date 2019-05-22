@@ -1,6 +1,9 @@
 .article {
   padding: 20px 0;
-  border-bottom: 1px solid #ccc;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
 }
 
 .link {
@@ -17,7 +20,7 @@
 .timeToRead {
   font-size: small;
   display: inline-block;
-  color: rgba(#e91e63, 0.75);
+  color: rgba(var(--hbr-shocking-pink), 0.75);
   margin-bottom: 10px;
 }
 
@@ -29,4 +32,10 @@
     display: inline-block;
     margin: 0 4px;
   }
+}
+
+.disqus {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
 }
