@@ -23,6 +23,7 @@ const typography = new Typography({
       "--hbr-dark-pink": "#c1134e",
       "--hbr-shocking-pink": "#e91e63",
       "--hbr-white": "#f8f8f8",
+      "--hbr-dark": "#333333",
       "--hbr-gray": "#888",
       "--hbr-light-gray": "#ddd",
       "--hbr-henna-green": "#dd7",
