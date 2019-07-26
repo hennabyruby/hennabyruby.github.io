@@ -15,23 +15,25 @@ const CategoryTemplate = ({ data, ...rest }) => {
         title={data.wordpressCategory.name}
         description={data.wordpressCategory.description}
       />
-      <p className={style.label}>Category</p>
-      <h1 className={style.heading}>{data.wordpressCategory.name}</h1>
-      {data.wordpressCategory.description && (
-        <p
-          dangerouslySetInnerHTML={{
-            __html: data.wordpressCategory.description,
-          }}
-        />
-      )}
-      <p>
-        {`There ${totalCount === 1 ? "is" : "are"} ${totalCount} ${
-          totalCount === 1 ? "post" : "posts"
-        } for this category.`}
-      </p>
-      {data.allWordpressPost.edges.map(post => (
-        <Post key={post.node.wordpress_id} post={post.node} />
-      ))}
+      <section className="container">
+        <p className={style.label}>Category</p>
+        <h1 className={style.heading}>{data.wordpressCategory.name}</h1>
+        {data.wordpressCategory.description && (
+          <p
+            dangerouslySetInnerHTML={{
+              __html: data.wordpressCategory.description,
+            }}
+          />
+        )}
+        <p>
+          {`There ${totalCount === 1 ? "is" : "are"} ${totalCount} ${
+            totalCount === 1 ? "post" : "posts"
+          } for this category.`}
+        </p>
+        {data.allWordpressPost.edges.map(post => (
+          <Post key={post.node.wordpress_id} post={post.node} />
+        ))}
+      </section>
     </Layout>
   )
 }

@@ -6,11 +6,13 @@ import Post from "../../components/post"
 
 const PostTemplate = ({ data, ...rest }) => (
   <Layout {...rest}>
-    <Post
-      key={data.wordpressPost.wordpress_id}
-      isSinglePost
-      post={data.wordpressPost}
-    />
+    <section className="container">
+      <Post
+        key={data.wordpressPost.wordpress_id}
+        isSinglePost
+        post={data.wordpressPost}
+      />
+    </section>
   </Layout>
 )
 

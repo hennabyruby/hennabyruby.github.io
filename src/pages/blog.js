@@ -11,7 +11,7 @@ const BlogPage = props => {
   return (
     <Layout {...rest}>
       <SEO title="Blog" />
-      <section>
+      <section className="container">
         {data.allWordpressPost.edges.map(post => (
           <Post key={post.node.wordpress_id} post={post.node} />
         ))}

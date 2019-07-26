@@ -9,8 +9,10 @@ const PageTemplate = ({ data, ...rest }) => (
       title={data.wordpressPage.title}
       description={data.wordpressPage.excerpt}
     />
-    <h1 dangerouslySetInnerHTML={{ __html: data.wordpressPage.title }} />
-    <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+    <section className="container">
+      <h1 dangerouslySetInnerHTML={{ __html: data.wordpressPage.title }} />
+      <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+    </section>
   </Layout>
 )
 
