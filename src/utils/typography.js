@@ -18,6 +18,9 @@ const typography = new Typography({
     body: {
       backgroundColor: "var(--hbr-white)",
     },
+    "::selection": {
+      backgroundColor: "var(--hbr-henna-green)",
+    },
     ":root": {
       "--hbr-pink": "#cc9ac6",
       "--hbr-dark-pink": "#c1134e",
@@ -27,6 +30,7 @@ const typography = new Typography({
       "--hbr-gray": "#888",
       "--hbr-light-gray": "#ddd",
       "--hbr-henna-green": "#dd7",
+      "--hbr-highlight": "#dc7",
     },
   }),
 })

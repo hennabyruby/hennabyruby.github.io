@@ -2,7 +2,7 @@
   padding: 20px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--hbr-light-gray);
   }
 }
 
@@ -37,5 +37,34 @@
 .disqus {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--hbr-light-gray);
+}
+
+.singleView {
+  margin-bottom: 1.5rem;
+}
+
+.category,
+.tag {
+  display: inline-block;
+  background-color: var(--hbr-henna-green);
+  color: var(--hbr-dark);
+  padding: 2px 6px;
+  font-size: small;
+  margin-right: 5px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: var(--hbr-highlight);
+  }
+}
+
+.icon {
+  margin: 0 10px 0 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
 }

@@ -3,10 +3,10 @@ import { Link } from "gatsby"
 import readingTime from "reading-time"
 import Disqus from "gatsby-plugin-disqus"
 
+import config from "../../config"
 import SEO from "../../components/seo"
 import Categories from "./categories"
 import Tags from "./tags"
-import config from "../../config"
 
 import style from "./style.module.scss"
 
@@ -56,6 +56,7 @@ const Post = ({ post, isSinglePost = false }) => {
     tags,
     comment_status,
   } = post
+
   const { text: timeToRead } = readingTime(content || "")
 
   return (
@@ -71,7 +72,7 @@ const Post = ({ post, isSinglePost = false }) => {
           {comment_status && comment_status === "open" && (
             <div className={style.disqus}>
               <Disqus
-                identifier={wordpress_id}
+                identifier={wordpress_id.toString()}
                 title={title}
                 url={`${APP_HOSTNAME}${path}`}
               />

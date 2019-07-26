@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import tagIcon from "./tag.svg"
 import tagsIcon from "./tags.svg"
-import style from "./style.module.scss"
+import style from "../style.module.scss"
 
 const Tags = ({ tags, isSinglePost = false }) => {
   return (
