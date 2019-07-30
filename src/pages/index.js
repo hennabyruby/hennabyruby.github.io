@@ -1,38 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Post from '../components/post';
+import Hero from './partials/hero';
+import Clients from './partials/clients';
 
 import style from './style.module.scss';
-
-const Hero = () => (
-  <div className={style.hero}>
-    <div className={style.cover}>
-      <a href="tel:07597081136" type="buttton" className={style.coverCta}>
-        Book now
-      </a>
-    </div>
-    <div className={style.services}>
-      <h2>Hi, I am Ruby</h2>
-      <p>Artist based in London Borough of Hounslow</p>
-      <p>
-        I love working with Henna and Face painting. I also draw, sketch and
-        paint in variety of mediums covering subjects mostly from landscapes and
-        abstract ideas. <Link to="/about">Read more about me...</Link>
-      </p>
-
-      <h3>Services</h3>
-      <ul className={style.serviceList}>
-        <li>Henna</li>
-        <li>Bridal Henna</li>
-        <li>Face painting</li>
-        <li>Glitter Tattoo</li>
-      </ul>
-    </div>
-  </div>
-);
 
 const IndexPage = ({ data, ...rest }) => (
   <Layout fluid isHomePage={true} {...rest}>
@@ -53,13 +28,25 @@ const IndexPage = ({ data, ...rest }) => (
       ]}
     />
     <Hero />
+    <Clients />
     <section className="container">
       {/* {data.allWordpressPost.edges.map(({ node }) => (
         <Post key={node.title} post={node} />
       ))} */}
-      <p>clients</p>
       <p>testimonial</p>
       <p>gallery</p>
+      <ul>
+        <li>Henna and face painting in Hounslow</li>
+        <li>Henna and face painting in West London</li>
+        <li>Henna and face painting in Isleworth</li>
+        <li>Henna and face painting in Feltham</li>
+        <li>Henna and face painting in Heston</li>
+        <li>Henna and face painting in Brentford</li>
+        <li>Henna and face painting in Southall</li>
+        <li>Henna and face painting in Kew</li>
+        <li>Henna and face painting in Chiswick</li>
+        <li>Henna and face painting in Ealing</li>
+      </ul>
     </section>
   </Layout>
 );

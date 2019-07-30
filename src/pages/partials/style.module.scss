@@ -1,0 +1,90 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    height: 300px;
+  }
+}
+
+.cover {
+  display: grid;
+  position: relative;
+  background-image: url(../../images/henna-face-paint-by-ruby-large.jpg);
+  background-repeat: no-repeat;
+  background-position: center left 100%;
+  background-size: cover;
+  justify-items: center;
+  align-items: end;
+  height: 300px;
+  padding-bottom: 2rem;
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: background-color 200ms ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-position: center left;
+    height: 100%;
+
+    &:hover {
+      &::before {
+        background-color: rgba(0, 0, 0, 0.35);
+      }
+
+      .coverCta {
+        box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+        padding: 0.75rem 2rem;
+      }
+    }
+  }
+}
+
+.services {
+  padding: 0 1rem;
+}
+
+.coverCta {
+  background-color: var(--hbr-white);
+  color: var(--hbr-shocking-pink);
+  font-size: 1rem;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
+  transition: transform 200ms ease, padding 100ms ease;
+}
+
+.serviceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+
+      &::after {
+        content: '/';
+        color: var(--hbr-shocking-pink);
+        margin-left: 5px;
+      }
+    }
+  }
+}
