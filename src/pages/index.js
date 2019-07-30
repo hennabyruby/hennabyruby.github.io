@@ -36,16 +36,36 @@ const IndexPage = ({ data, ...rest }) => (
       <p>testimonial</p>
       <p>gallery</p>
       <ul>
-        <li>Henna and face painting in Hounslow</li>
-        <li>Henna and face painting in West London</li>
-        <li>Henna and face painting in Isleworth</li>
-        <li>Henna and face painting in Feltham</li>
-        <li>Henna and face painting in Heston</li>
-        <li>Henna and face painting in Brentford</li>
-        <li>Henna and face painting in Southall</li>
-        <li>Henna and face painting in Kew</li>
-        <li>Henna and face painting in Chiswick</li>
-        <li>Henna and face painting in Ealing</li>
+        <li>
+          <a href="/Hounslow">Henna and face painting in Hounslow</a>
+        </li>
+        <li>
+          <a href="/West London">Henna and face painting in West London</a>
+        </li>
+        <li>
+          <a href="/Isleworth">Henna and face painting in Isleworth</a>
+        </li>
+        <li>
+          <a href="/Feltham">Henna and face painting in Feltham</a>
+        </li>
+        <li>
+          <a href="/Heston">Henna and face painting in Heston</a>
+        </li>
+        <li>
+          <a href="/Brentford">Henna and face painting in Brentford</a>
+        </li>
+        <li>
+          <a href="/Southall">Henna and face painting in Southall</a>
+        </li>
+        <li>
+          <a href="/Kew">Henna and face painting in Kew</a>
+        </li>
+        <li>
+          <a href="/Chiswick">Henna and face painting in Chiswick</a>
+        </li>
+        <li>
+          <a href="/Ealing">Henna and face painting in Ealing</a>
+        </li>
       </ul>
     </section>
   </Layout>
