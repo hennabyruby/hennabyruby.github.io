@@ -1,39 +1,39 @@
-import React, { memo } from "react"
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
-import style from "./style.module.scss"
+import style from './style.module.scss';
 
 const Logo = ({ siteTitle, isHomePage }) => {
   return isHomePage ? (
-    <h1 className={style.heading}>{siteTitle}</h1>
+    <h1 className={style.logo}>{siteTitle}</h1>
   ) : (
-    <div className={style.heading}>
+    <div className={style.logo}>
       <Link to="/">{siteTitle}</Link>
     </div>
-  )
-}
+  );
+};
 
-const navManu = [
-  { title: "Gallery", path: "/gallery" },
-  { title: "Blog", path: "/blog" },
-  { title: "About", path: "/about" },
-  { title: "Contact", path: "/contact" },
-]
+const navMenu = [
+  { title: 'Gallery', path: '/gallery' },
+  { title: 'Blog', path: '/blog' },
+  { title: 'About', path: '/about' },
+  { title: 'Contact', path: '/contact' },
+];
 
 const Header = ({ siteTitle, location }) => {
-  const { pathname } = location
-  const isHomePage = pathname === "/"
+  const { pathname } = location;
+  const isHomePage = pathname === '/';
 
   return (
-    <header className={style.header}>
+    <header className={`container ${style.header}`}>
       <Logo isHomePage={isHomePage} siteTitle={siteTitle} />
       <nav role="navigation" className={style.nav}>
         <ul className={style.navList}>
-          {navManu.map(navItem => (
+          {navMenu.map(navItem => (
             <li key={navItem.title}>
               <Link
-                className={pathname === navItem.path ? style.active : ""}
+                className={pathname === navItem.path ? style.active : ''}
                 to={navItem.path}
               >
                 {navItem.title}
@@ -43,15 +43,16 @@ const Header = ({ siteTitle, location }) => {
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+  location: PropTypes.object,
+};
 
 Header.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default memo(Header)
+export default memo(Header);

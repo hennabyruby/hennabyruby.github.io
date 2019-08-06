@@ -25,8 +25,10 @@ const typography = new Typography({
       backgroundColor: 'var(--hbr-henna-green)',
     },
     '.container': {
+      display: 'block',
+      width: '100%',
+      margin: '0 auto',
       maxWidth: '960px',
-      padding: '0px 1.0875rem 1.45rem',
     },
     ':root': {
       '--hbr-pink': '#cc9ac6',

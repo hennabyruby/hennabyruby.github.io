@@ -88,3 +88,39 @@
     }
   }
 }
+
+/**
+ * <Clients />
+ */
+.clients {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--hbr-dark);
+  text-align: center;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--hbr-gray);
+}
+
+.clients {
+  li {
+    display: block;
+    margin: 0;
+    padding: 24px;
+
+    img {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+}

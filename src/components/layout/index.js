@@ -1,10 +1,10 @@
-import React, { memo } from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from "../header"
-import Footer from "../footer"
-import style from "./style.module.scss"
+import Header from '../header';
+import Footer from '../footer';
+import style from './style.module.scss';
 
 const Layout = ({ children, ...rest }) => (
   <StaticQuery
@@ -25,10 +25,10 @@ const Layout = ({ children, ...rest }) => (
       </div>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default memo(Layout)
+export default memo(Layout);
