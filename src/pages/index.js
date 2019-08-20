@@ -32,43 +32,8 @@ const IndexPage = ({ data, ...rest }) => (
     <section className="container">
       <Hero />
       <Clients />
-      {/* {data.allWordpressPost.edges.map(({ node }) => (
-        <Post key={node.title} post={node} />
-      ))} */}
       <Testimonials />
       <Gallery />
-      <ul>
-        <li>
-          <a href="/Hounslow">Henna and face painting in Hounslow</a>
-        </li>
-        <li>
-          <a href="/West London">Henna and face painting in West London</a>
-        </li>
-        <li>
-          <a href="/Isleworth">Henna and face painting in Isleworth</a>
-        </li>
-        <li>
-          <a href="/Feltham">Henna and face painting in Feltham</a>
-        </li>
-        <li>
-          <a href="/Heston">Henna and face painting in Heston</a>
-        </li>
-        <li>
-          <a href="/Brentford">Henna and face painting in Brentford</a>
-        </li>
-        <li>
-          <a href="/Southall">Henna and face painting in Southall</a>
-        </li>
-        <li>
-          <a href="/Kew">Henna and face painting in Kew</a>
-        </li>
-        <li>
-          <a href="/Chiswick">Henna and face painting in Chiswick</a>
-        </li>
-        <li>
-          <a href="/Ealing">Henna and face painting in Ealing</a>
-        </li>
-      </ul>
     </section>
   </Layout>
 );

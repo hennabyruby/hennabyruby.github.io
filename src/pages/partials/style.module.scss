@@ -81,14 +81,30 @@
 
   li {
     display: inline-block;
+    width: 50%;
 
-    &:not(:last-child) {
-      margin-right: 5px;
+    &::before {
+      content: '\2022';
+      color: var(--hbr-shocking-pink);
+      margin-right: 10px;
+    }
 
-      &::after {
-        content: '/';
-        color: var(--hbr-shocking-pink);
-        margin-left: 5px;
+    @media screen and (min-width: 400px) {
+      width: auto;
+
+      &::before {
+        content: '';
+        margin-right: 0;
+      }
+
+      &:not(:first-child) {
+        margin-left: 10px;
+
+        &::before {
+          content: '/';
+          color: var(--hbr-shocking-pink);
+          margin-right: 10px;
+        }
       }
     }
   }
@@ -203,7 +219,7 @@
     display: block;
     font-style: italic;
     color: var(--hbr-gray);
-    text-align: right;
+    margin-top: 1rem;
 
     &::before {
       content: '—';
@@ -213,9 +229,33 @@
 }
 
 .article {
+
   & + & {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid var(--hbr-shocking-pink);
   }
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    max-width: 46%;
+    vertical-align: top;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+
+    & + & {
+      margin-top: 0;
+      margin-bottom: 2rem;
+      padding-top: 0;
+      border-top: 0 none;
+    }
+  }
+}
+
+/**
+ * Gallery
+ */
+.gallery {
+  padding: 1rem;
+  margin: 1rem 0;
 }

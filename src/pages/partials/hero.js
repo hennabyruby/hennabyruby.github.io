@@ -44,8 +44,8 @@ const Hero = () => (
 
       <hr />
       <h3>Services</h3>
-      <p>Bookings available for any seasonal, personal and corporate social events.</p>
-      <p>Services offered are:</p>
+      <p>Bookings are available for any seasonal, personal and corporate social events.</p>
+      <p><strong>Services offered</strong></p>
       <ul className={style.serviceList}>
         <li>Henna art</li>
         <li>Bridal Henna</li>
