@@ -1,0 +1,148 @@
+@import '../../../utils/mixins';
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 40px;
+}
+
+.cover {
+  display: grid;
+  position: relative;
+  background-image: url(../../../images/henna-face-paint-by-ruby-large.jpg);
+  background-repeat: no-repeat;
+  background-position: center left 100%;
+  background-size: cover;
+  justify-items: center;
+  align-items: end;
+  height: 300px;
+  padding-bottom: 2rem;
+  margin-left: -1em;
+  margin-right: -1em;
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: background-color 200ms ease;
+  }
+
+  @include mediumPlus() {
+    background-position: center left;
+  }
+}
+
+.cover:hover {
+  @include mediumPlus() {
+    &::before {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .coverCta {
+      box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+      padding: 0.75rem 2rem;
+    }
+  }
+}
+
+.subtitle {
+  color: initial;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin-top: 1rem;
+}
+
+.services {
+  hr {
+    height: 1px;
+    background-color: var(--hbr-pink);
+  }
+}
+
+.coverCta {
+  background-color: var(--hbr-white);
+  color: var(--hbr-shocking-pink);
+  font-size: 1rem;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
+  transition: transform 200ms ease, padding 100ms ease;
+}
+
+.serviceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    width: 50%;
+
+    &::before {
+      content: '\2022';
+      color: var(--hbr-shocking-pink);
+      margin-right: 10px;
+    }
+
+    @media screen and (min-width: 400px) {
+      width: auto;
+
+      &::before {
+        content: '';
+        margin-right: 0;
+      }
+
+      &:not(:first-child) {
+        margin-left: 10px;
+
+        &::before {
+          content: '/';
+          color: var(--hbr-shocking-pink);
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get in touch / Contact
+ */
+.contact {
+  display: block;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  svg {
+    margin: 0;
+    vertical-align: top;
+  }
+
+  dt {
+    display: inline-block;
+    font-weight: normal;
+    width: 35px;
+  }
+
+  dd {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.2rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}

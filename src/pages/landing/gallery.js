@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './style.module.scss';
+import style from './sass/gallery.module.scss';
 
 const Gallery = () => (
   <section className={style.gallery}>

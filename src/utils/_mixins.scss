@@ -1,10 +1,10 @@
-@mixin mediumAndAbove() {
+@mixin mediumPlus() {
   @media screen and (min-width: 719px) {
     @content;
   }
 }
 
-@mixin largeAndAbove() {
+@mixin largePlus() {
   @media screen and (min-width: 1023px) {
     @content;
   }

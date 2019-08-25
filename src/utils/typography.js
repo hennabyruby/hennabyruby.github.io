@@ -28,8 +28,12 @@ const typography = new Typography({
       display: 'block',
       width: '100%',
       margin: '0 auto',
+      padding: '1rem',
       maxWidth: '960px',
     },
+    '.unstyled': { listStyle: 'none', margin: 0, padding: 0 },
+    '.inline li, .inline dt, .inline dd': { display: 'inline-block' },
+    '.inline > * + *': { marginLeft: '.75rem' },
     ':root': {
       '--hbr-pink': '#cc9ac6',
       '--hbr-dark-pink': '#c1134e',

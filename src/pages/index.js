@@ -3,13 +3,10 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Post from '../components/post';
-import Hero from './partials/hero';
-import Clients from './partials/clients';
-import Testimonials from './partials/testimonials';
-import Gallery from './partials/gallery';
-
-import style from './style.module.scss';
+import Hero from './landing/hero';
+import Clients from './landing/clients';
+import Testimonials from './landing/testimonials';
+import Gallery from './landing/gallery';
 
 const IndexPage = ({ data, ...rest }) => (
   <Layout fluid isHomePage={true} {...rest}>
