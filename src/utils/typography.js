@@ -31,6 +31,9 @@ const typography = new Typography({
       padding: '1rem',
       maxWidth: '960px',
     },
+    '.section': {
+      marginTop: '3.5rem',
+    },
     '.unstyled': { listStyle: 'none', margin: 0, padding: 0 },
     '.inline li, .inline dt, .inline dd': { display: 'inline-block' },
     '.inline > * + *': { marginLeft: '.75rem' },
@@ -44,6 +47,18 @@ const typography = new Typography({
       '--hbr-light-gray': '#ddd',
       '--hbr-henna-green': '#dd7',
       '--hbr-highlight': '#dc7',
+    },
+    '.lead': {
+      fontSize: '1.5rem',
+      fontWeight: 300,
+    },
+    '.dimTitle': {
+      fontSize: '1rem',
+      fontWeight: 'normal',
+      letterSpacing: '1px',
+      textTransform: 'uppercase',
+      color: 'var(--hbr-gray)',
+      textAlign: 'center',
     },
   }),
 });

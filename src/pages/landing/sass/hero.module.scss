@@ -18,8 +18,6 @@
   align-items: end;
   height: 300px;
   padding-bottom: 2rem;
-  margin-left: -1em;
-  margin-right: -1em;
 
   &::before {
     position: absolute;
@@ -35,6 +33,10 @@
 
   @include mediumPlus() {
     background-position: center left;
+  }
+
+  @include largePlus() {
+    height: 400px;
   }
 }
 
@@ -54,16 +56,10 @@
 
 .subtitle {
   color: initial;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: 1.5rem;
+  font-weight: normal;
+  line-height: 1.5;
   margin-top: 1rem;
-}
-
-.services {
-  hr {
-    height: 1px;
-    background-color: var(--hbr-pink);
-  }
 }
 
 .coverCta {
@@ -125,14 +121,20 @@
   }
 
   svg {
-    margin: 0;
-    vertical-align: top;
+    margin: -5px 0 0 0;
+    vertical-align: middle;
   }
 
   dt {
     display: inline-block;
     font-weight: normal;
     width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: var(--hbr-dark);
+    border-radius: 50%;
+    margin-right: 10px;
   }
 
   dd {

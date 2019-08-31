@@ -26,12 +26,12 @@ const IndexPage = ({ data, ...rest }) => (
         `henna London`,
       ]}
     />
-    <section className="container">
+    <>
       <Hero />
       <Clients />
       <Testimonials />
       <Gallery />
-    </section>
+    </>
   </Layout>
 );
 

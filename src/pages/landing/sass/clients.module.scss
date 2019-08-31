@@ -1,18 +1,17 @@
+@import '../../../utils/mixins';
+
 .clients {
-  margin: 3rem -1rem;
   padding: 1rem 0;
   background-color: var(--hbr-dark);
   text-align: center;
 
   li {
     padding: 24px;
-  }
-}
 
-.dimTitle {
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: var(--hbr-gray);
+    @include mediumPlus() {
+      min-width: 12.5rem;
+    }
+  }
 }
 
 .clientLogos {

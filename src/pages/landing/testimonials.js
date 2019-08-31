@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import style from './sass/testimonials.module.scss';
 
 const Testimonials = () => (
   <div className={style.testimonials}>
-    <h3>Testimonials</h3>
-    <section className={style.articles}>
+    <h3 className="dimTitle">What clients are saying</h3>
+    <section className={classNames('container', style.articles)}>
       <article className={style.article}>
         <blockquote className={style.blockquote}>
           We hired ruby for a children's party. I asked her to come for 4 hours

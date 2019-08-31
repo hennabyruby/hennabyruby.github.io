@@ -26,6 +26,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "gatsby-plugin-disqus": "^1.1.2",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sitemap": "^2.2.9",

@@ -1,19 +1,27 @@
 @import '../../../utils/mixins';
 
 .testimonials {
-  margin: 1rem 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: var(--hbr-light-gray);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .blockquote {
   margin: 0;
   padding: 0;
+  color: var(--hbr-dark);
 
   &::before,
   &::after {
     content: none;
-    font-weight: bold;
     margin: 2px;
-    color: var(--hbr-shocking-pink);
   }
 
   &::before {
@@ -28,47 +36,64 @@
 .cite {
   display: block;
   font-style: italic;
-  color: var(--hbr-gray);
+  color: var(--hbr-shocking-pink);
   margin-top: 1rem;
 
   &::before {
     content: '—';
     margin-right: 2px;
+    color: initial;
   }
 }
 
 .articles {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
-  grid-gap: 2rem;
+  display: flex;
   overflow: hidden;
   overflow-x: auto;
 
   &::-webkit-scrollbar {
     width: 0px;
   }
-
-  // @include mediumPlus() {}
 }
 
 .article {
-  & + & {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--hbr-shocking-pink);
+  flex-direction: column;
+  flex-flow: column;
+  min-width: 100%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+  // animation: carousel 35s alternate infinite ease-in;
+
+  .blockquote {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
   }
 
-  // @include mediumPlus() {
-  // max-width: 46%;
-  // margin-bottom: 2rem;
-  // margin-right: 1rem;
+  20%,
+  25% {
+    transform: translateX(-100%);
+  }
 
-  // & + & {
-  //   margin-top: 0;
-  //   margin-bottom: 2rem;
-  //   padding-top: 0;
-  //   border-top: 0 none;
-  // }
-  // }
+  45%,
+  50% {
+    transform: translateX(-200%);
+  }
+
+  70%,
+  75% {
+    transform: translateX(-300%);
+  }
+
+  95%,
+  100% {
+    transform: translateX(-400%);
+  }
 }
