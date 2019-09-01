@@ -15,9 +15,6 @@ const typography = new Typography({
     },
   ],
   overrideStyles: () => ({
-    '*': {
-      boxSizing: 'border-box',
-    },
     body: {
       backgroundColor: 'var(--hbr-white)',
     },
