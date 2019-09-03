@@ -34,31 +34,32 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: "hennabyruby.dyzynz.net",
-        protocol: "http",
+        baseUrl: 'hennabyruby.dyzynz.net',
+        protocol: 'http',
         hostingWPCOM: false,
         useACF: false,
         acfOptionPageIds: [],
         verboseOutput: false,
         perPage: 100,
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://hennabyruby.dyzynz.net",
+          sourceUrl: 'https://hennabyruby.dyzynz.net',
           replacementUrl: process.env.GATSBY_APP_HOSTNAME,
         },
         concurrentRequests: 10,
         includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
+          '**/categories',
+          '**/posts',
+          '**/pages',
+          '**/media',
+          '**/tags',
+          '**/taxonomies',
+          '**/services',
         ],
         excludedRoutes: [],
         normalizer: function({ entities }) {
-          return entities
+          return entities;
         },
       },
     },
@@ -79,4 +80,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

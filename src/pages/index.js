@@ -27,7 +27,7 @@ const IndexPage = ({ data, ...rest }) => (
       ]}
     />
     <>
-      <Hero />
+      <Hero data={data.allWordpressWpServices} />
       <Clients />
       <Testimonials />
       <Gallery />
@@ -48,6 +48,29 @@ export const query = graphql`
           path
           author
           date(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
+    allWordpressWpServices {
+      nodes {
+        link
+        excerpt
+        slug
+        path
+        title
+        wordpress_id
+        featured_media {
+          localFile {
+            childImageSharp {
+              sizes {
+                src
+                srcSet
+              }
+              resize(width: 150, height: 150) {
+                src
+              }
+            }
+          }
         }
       }
     }

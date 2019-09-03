@@ -72,6 +72,18 @@
   }
 }
 
+.stars {
+  margin-top: 1rem;
+}
+
+.star + .star {
+  margin-left: 0.5rem;
+}
+
+.small {
+  font-size: small;
+}
+
 @keyframes carousel {
   0% {
     transform: translateX(0);
