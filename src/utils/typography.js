@@ -45,6 +45,9 @@ const typography = new Typography({
       '--hbr-henna-green': '#dd7',
       '--hbr-highlight': '#dc7',
     },
+    h3: {
+      fontWeight: 300,
+    },
     '.lead': {
       fontSize: '1.5rem',
       fontWeight: 300,

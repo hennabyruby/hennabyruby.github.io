@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import style from './sass/testimonials.module.scss';
 
-const Star = ({ size = 32, color = 'black' }) => (
+const Star = ({ size = 32, color = 'orange' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -16,7 +16,12 @@ const Star = ({ size = 32, color = 'black' }) => (
   </svg>
 );
 
-const FiveStars = () => [...Array(5)].map((e, i) => <Star color="#a98c2d" />);
+const FeedbackScore = ({ score = 5 }) =>
+  score > 0
+    ? [...new Array(score > 5 ? 5 : Math.floor(score))].map((e, i) => (
+        <Star key={i} />
+      ))
+    : null;
 
 const FeedbackSource = () => (
   <small className={style.small}>
@@ -45,7 +50,7 @@ const Testimonials = () => (
           defos be joining us on our future parties
         </blockquote>
         <div className={style.stars}>
-          <FiveStars />
+          <FeedbackScore />
         </div>
         <cite className={style.cite}>Zahra Mian</cite>
         <FeedbackSource />
@@ -58,7 +63,7 @@ const Testimonials = () => (
           Ruby x
         </blockquote>
         <div className={style.stars}>
-          <FiveStars />
+          <FeedbackScore />
         </div>
         <cite className={style.cite}>Amber Dallas Cawte</cite>
         <FeedbackSource />
@@ -71,7 +76,7 @@ const Testimonials = () => (
           Ruby x
         </blockquote>
         <div className={style.stars}>
-          <FiveStars />
+          <FeedbackScore />
         </div>
         <cite className={style.cite}>Amber Dallas Cawte</cite>
         <FeedbackSource />
@@ -84,7 +89,7 @@ const Testimonials = () => (
           Ruby x
         </blockquote>
         <div className={style.stars}>
-          <FiveStars />
+          <FeedbackScore />
         </div>
         <cite className={style.cite}>Amber Dallas Cawte</cite>
         <FeedbackSource />
