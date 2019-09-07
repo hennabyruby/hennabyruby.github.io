@@ -6,8 +6,6 @@ import { Link } from 'gatsby';
 import style from './sass/hero.module.scss';
 
 const Hero = ({ data }) => {
-  const services = data.nodes;
-
   return (
     <section className={style.hero}>
       <article className={style.cover}>
@@ -85,9 +83,9 @@ const Hero = ({ data }) => {
             Bookings are available for any seasonal, personal and corporate
             social events. If you would to know more, please get in touch.
           </p>
-          {services && (
+          {data && data.nodes && (
             <ul className={style.serviceList}>
-              {services.map((service) => (
+              {data.nodes.map((service) => (
                 <li key={service.path}>
                   {get(
                     service,

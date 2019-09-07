@@ -10,7 +10,7 @@
       "email": "hello@jabran.me"
     }
   ],
-  "homepage": "http://hennabyruby.github.io",
+  "homepage": "https://www.hennabyruby.com",
   "dependencies": {
     "gatsby": "^2.13.82",
     "gatsby-image": "^2.2.14",
@@ -44,7 +44,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "build:dev": "GATSBY_APP_HOSTNAME=http://localhost:8000 GATSBY_WP_HOSTNAME=http://hennabyruby.dyzynz.netgatsby npm run build",
+    "build:dev": "GATSBY_APP_HOSTNAME=http://localhost:8000 GATSBY_WP_HOSTNAME=http://hennabyruby.dyzynz.net npm run build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
