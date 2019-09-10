@@ -33,6 +33,8 @@ const Hero = ({ data }) => {
 
         <article className={classNames('section', style.booking)}>
           <h3>Get in touch</h3>
+          <p className="lead">Currently taking bookings for next 3 months.</p>
+          <p>Get in touch to discuss an appointment.</p>
           <dl className={style.contact}>
             <dt>
               <svg

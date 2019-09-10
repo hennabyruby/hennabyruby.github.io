@@ -1,2 +1,14 @@
-.gallery {
+.media {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  place-items: center start;
+  margin-bottom: 2rem;
+}
+
+.img {
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  height: 150px;
 }

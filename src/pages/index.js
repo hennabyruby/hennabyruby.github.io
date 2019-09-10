@@ -30,7 +30,7 @@ const IndexPage = ({ data, ...rest }) => (
       <Hero data={data.allWordpressWpServices} />
       <Clients />
       <Testimonials />
-      <Gallery />
+      <Gallery data={data.allWordpressWpMedia} />
     </>
   </Layout>
 );
@@ -68,6 +68,22 @@ export const query = graphql`
               }
               resize(width: 150, height: 150) {
                 src
+              }
+            }
+          }
+        }
+      }
+    }
+    allWordpressWpMedia(limit: 10) {
+      edges {
+        node {
+          localFile {
+            childImageSharp {
+              resize(width: 250, height: 250) {
+                src
+                width
+                height
+                originalName
               }
             }
           }

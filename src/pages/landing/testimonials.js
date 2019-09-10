@@ -29,7 +29,7 @@ const FeedbackSource = () => (
     <a
       href="https://www.facebook.com/hennabyruby"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       Facebook page &raquo;
     </a>
