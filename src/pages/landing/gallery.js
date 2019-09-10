@@ -5,7 +5,6 @@ import style from './sass/gallery.module.scss';
 import { Link } from 'gatsby';
 
 const Gallery = ({ data }) => {
-  const images = data.edges;
   return (
     <section className={classNames('section', style.gallery)}>
       <div className="container">
@@ -14,9 +13,9 @@ const Gallery = ({ data }) => {
           Here are some photos of my work including Henna, Face painting,
           Glitter tattoos and more.
         </p>
-        {images && images.length > 0 && (
+        {data && data.edges && data.edges.length > 0 && (
           <div className={style.media}>
-            {images.map(({ node }) => (
+            {data.edges.map(({ node }) => (
               <img
                 className={style.img}
                 key={node.localFile.childImageSharp.resize.originalName}
