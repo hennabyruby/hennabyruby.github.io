@@ -10,28 +10,11 @@ import Gallery from './landing/gallery';
 
 const IndexPage = ({ data, ...rest }) => (
   <Layout fluid isHomePage={true} {...rest}>
-    <SEO
-      title="Ruby Idrees – Henna & Face paint artist – Hounslow, West London"
-      keywords={[
-        `henna`,
-        `mendhi`,
-        `bridal henna`,
-        `art`,
-        `glitter tattoos`,
-        `tattoos`,
-        `henna artist in Hounslow`,
-        `henna artist in London`,
-        `henna Hounslow`,
-        `henna Southall`,
-        `henna London`,
-      ]}
-    />
-    <>
-      <Hero data={data.allWordpressWpServices} />
-      <Clients />
-      <Testimonials />
-      <Gallery data={data.allWordpressWpMedia} />
-    </>
+    <SEO title="Ruby Idrees – Henna & Face paint artist – Hounslow, West London" />
+    <Hero data={data.allWordpressWpServices} />
+    <Clients />
+    <Testimonials />
+    <Gallery data={data.allWordpressWpMedia} showMore={true} />
   </Layout>
 );
 

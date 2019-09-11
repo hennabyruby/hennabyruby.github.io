@@ -28,7 +28,7 @@ const typography = new Typography({
       padding: '1rem',
       maxWidth: '960px',
     },
-    '.section': {
+    '.section + .section': {
       marginTop: '3.5rem',
     },
     '.unstyled': { listStyle: 'none', margin: 0, padding: 0 },

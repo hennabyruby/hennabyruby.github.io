@@ -1,10 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import style from './sass/gallery.module.scss';
 import { Link } from 'gatsby';
 
-const Gallery = ({ data }) => {
+const propTypes = { data: PropTypes.object, showMore: PropTypes.bool };
+const defaultProps = { showMore: false };
+
+const Gallery = ({ data, showMore }) => {
   const images = data.edges;
   return (
     <section className={classNames('section', style.gallery)}>
@@ -28,12 +32,17 @@ const Gallery = ({ data }) => {
             ))}
           </div>
         )}
-        <p>
-          <Link to="/gallery">&raquo; View more</Link>
-        </p>
+        {showMore && (
+          <p>
+            <Link to="/gallery">&raquo; View more</Link>
+          </p>
+        )}
       </div>
     </section>
   );
 };
+
+Gallery.propTypes = propTypes;
+Gallery.defaultProps = defaultProps;
 
 export default Gallery;
