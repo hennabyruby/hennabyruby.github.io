@@ -18,9 +18,9 @@ const Gallery = ({ data, showMore }) => {
           Here are some photos of my work including Henna, Face painting,
           Glitter tattoos and more.
         </p>
-        {images && images.length > 0 && (
+        {data && data.edges && data.edges.length > 0 && (
           <div className={style.media}>
-            {images.map(({ node }) => (
+            {data.edges.map(({ node }) => (
               <img
                 className={style.img}
                 key={node.localFile.childImageSharp.resize.originalName}
