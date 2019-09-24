@@ -16,12 +16,24 @@ export default GalleryPage;
 
 export const query = graphql`
   query {
-    allWordpressWpMedia(limit: 10) {
+    allWordpressWpMedia(limit: 10, filter: { type: { eq: "attachment" } }) {
       edges {
         node {
           localFile {
             childImageSharp {
-              resize(width: 250, height: 250) {
+              thumbnail: resize(width: 250, height: 250, cropFocus: CENTER) {
+                src
+                width
+                height
+                originalName
+              }
+              medium: resize(width: 650, height: 650, cropFocus: CENTER) {
+                src
+                width
+                height
+                originalName
+              }
+              large: resize(width: 1024, height: 1024, cropFocus: CENTER) {
                 src
                 width
                 height

@@ -10,6 +10,11 @@ const defaultProps = { showMore: false };
 
 const Gallery = ({ data, showMore }) => {
   const images = data.edges;
+
+  const openImage = (ev) => {
+    console.log(ev.target);
+  };
+
   return (
     <section className={classNames('section', style.gallery)}>
       <div className="container">
@@ -18,16 +23,19 @@ const Gallery = ({ data, showMore }) => {
           Here are some photos of my work including Henna, Face painting,
           Glitter tattoos and more.
         </p>
-        {data && data.edges && data.edges.length > 0 && (
+        {data && data.edges && Boolean(data.edges.length) && (
           <div className={style.media}>
-            {data.edges.map(({ node }) => (
+            {data.edges.map(({ node }, i) => (
               <img
+                loading={i > 3 ? 'lazy' : 'auto'}
                 className={style.img}
-                key={node.localFile.childImageSharp.resize.originalName}
-                width={node.localFile.childImageSharp.resize.width}
-                height={node.localFile.childImageSharp.resize.height}
-                src={node.localFile.childImageSharp.resize.src}
+                key={node.localFile.childImageSharp.thumbnail.originalName}
+                width={node.localFile.childImageSharp.thumbnail.width}
+                height={node.localFile.childImageSharp.thumbnail.height}
+                src={node.localFile.childImageSharp.thumbnail.src}
+                data-src={node.localFile.childImageSharp.medium.src}
                 alt=""
+                onClick={openImage}
               />
             ))}
           </div>
