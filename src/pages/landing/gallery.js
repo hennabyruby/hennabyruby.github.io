@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -8,11 +8,30 @@ import { Link } from 'gatsby';
 const propTypes = { data: PropTypes.object, showMore: PropTypes.bool };
 const defaultProps = { showMore: false };
 
+const Modal = ({ onClose, children }) => {
+  return (
+    <div className={style.modal}>
+      <button className={style.close} type="button" onClick={onClose}>
+        &times;
+      </button>
+      <div className={style.inner}>{children}</div>
+    </div>
+  );
+};
+
 const Gallery = ({ data, showMore }) => {
-  const images = data.edges;
+  const [isOpen, setOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
 
   const openImage = (ev) => {
-    console.log(ev.target);
+    ev.preventDefault();
+    setSelected(ev.target.dataset.src);
+    setOpen(true);
+  };
+
+  const closeImage = (ev) => {
+    setSelected(null);
+    setOpen(false);
   };
 
   return (
@@ -26,19 +45,29 @@ const Gallery = ({ data, showMore }) => {
         {data && data.edges && Boolean(data.edges.length) && (
           <div className={style.media}>
             {data.edges.map(({ node }, i) => (
-              <img
-                loading={i > 3 ? 'lazy' : 'auto'}
-                className={style.img}
+              <a
+                className={style.anchor}
                 key={node.localFile.childImageSharp.thumbnail.originalName}
-                width={node.localFile.childImageSharp.thumbnail.width}
-                height={node.localFile.childImageSharp.thumbnail.height}
-                src={node.localFile.childImageSharp.thumbnail.src}
-                data-src={node.localFile.childImageSharp.medium.src}
-                alt=""
                 onClick={openImage}
-              />
+                href={node.localFile.childImageSharp.medium.src}
+              >
+                <img
+                  loading={i > 3 ? 'lazy' : 'auto'}
+                  className={style.thumbnail}
+                  width={node.localFile.childImageSharp.thumbnail.width}
+                  height={node.localFile.childImageSharp.thumbnail.height}
+                  src={node.localFile.childImageSharp.thumbnail.src}
+                  data-src={node.localFile.childImageSharp.medium.src}
+                  alt=""
+                />
+              </a>
             ))}
           </div>
+        )}
+        {isOpen && (
+          <Modal onClose={closeImage}>
+            <img src={selected} alt="" />
+          </Modal>
         )}
         {showMore && (
           <p>
@@ -53,4 +82,4 @@ const Gallery = ({ data, showMore }) => {
 Gallery.propTypes = propTypes;
 Gallery.defaultProps = defaultProps;
 
-export default Gallery;
+export default memo(Gallery);

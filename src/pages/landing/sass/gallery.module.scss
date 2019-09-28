@@ -6,9 +6,73 @@
   margin-bottom: 2rem;
 }
 
-.img {
+.thumbnail {
   margin: 0;
   padding: 0;
   width: 150px;
   height: 150px;
+  cursor: pointer;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 15px;
+  animation: fadein 0.4s;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 15px;
+}
+
+.inner > *:first-child {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+}
+
+.anchor {
+  display: block;
+}
+
+.close {
+  right: 25px;
+  position: absolute;
+  top: 25px;
+  border: 1px solid var(--hbr-light-gray);
+  background: none;
+  width: 36px;
+  height: 36px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--hbr-light-gray);
+  transition: color 150ms ease, background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--hbr-light-gray);
+    color: var(--hbr-dark);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+  }
 }
