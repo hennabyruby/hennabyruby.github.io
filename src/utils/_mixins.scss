@@ -1,3 +1,9 @@
+@mixin smallOnly() {
+  @media screen and (max-width: 718px) {
+    @content;
+  }
+}
+
 @mixin mediumPlus() {
   @media screen and (min-width: 719px) {
     @content;

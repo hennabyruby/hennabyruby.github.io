@@ -42,6 +42,19 @@ const Testimonials = () => (
     <section className={classNames('container', style.articles)}>
       <article className={style.article}>
         <blockquote className={style.blockquote}>
+          Ruby came to our local church fayre and was fantastic a for the
+          children and the adults. Very good prices and excellent work. Defently
+          a must have at any party, social event or fayre. Thank you so much
+          Ruby x
+        </blockquote>
+        <div className={style.stars}>
+          <FeedbackScore />
+        </div>
+        <cite className={style.cite}>Amber Dallas Cawte</cite>
+        <FeedbackSource />
+      </article>
+      <article className={style.article}>
+        <blockquote className={style.blockquote}>
           We hired ruby for a children's party. I asked her to come for 4 hours
           and do around 45 kids. But bless her on the day she ended up doing
           over 50 kids and adults and stayed and extra 1.5 hours. She worked non
@@ -55,19 +68,7 @@ const Testimonials = () => (
         <cite className={style.cite}>Zahra Mian</cite>
         <FeedbackSource />
       </article>
-      <article className={style.article}>
-        <blockquote className={style.blockquote}>
-          Ruby came to our local church fayre and was fantastic a for the
-          children and the adults. Very good prices and excellent work. Defently
-          a must have at any party, social event or fayre. Thank you so much
-          Ruby x
-        </blockquote>
-        <div className={style.stars}>
-          <FeedbackScore />
-        </div>
-        <cite className={style.cite}>Amber Dallas Cawte</cite>
-        <FeedbackSource />
-      </article>
+
       <article className={style.article}>
         <blockquote className={style.blockquote}>
           Ruby came to our local church fayre and was fantastic a for the

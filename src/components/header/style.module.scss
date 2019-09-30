@@ -19,7 +19,10 @@
   font-size: 1px;
   text-indent: -1000%;
   justify-self: center;
-  margin: 1rem;
+
+  @include mediumPlus() {
+    margin: 1rem;
+  }
 
   a {
     text-decoration: none;
@@ -34,9 +37,55 @@
   }
 }
 
+.burger {
+  position: relative;
+  display: none;
+  text-transform: uppercase;
+  width: 24px;
+  font-size: 0px;
+  height: 2px;
+  background: red;
+  border: 0 none;
+  top: 10px;
+  cursor: pointer;
+
+  @include smallOnly() {
+    display: block;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+  }
+
+  &::before {
+    top: 6px;
+  }
+
+  &::after {
+    top: 12px;
+  }
+}
+
+.nav {
+  @include smallOnly {
+    display: none;
+
+    &.showMenu {
+      display: block;
+    }
+  }
+}
+
 .navList {
   display: grid;
-  grid-auto-flow: column;
   list-style: none;
   font-size: 14px;
   font-weight: 500;
@@ -45,13 +94,20 @@
   padding: 0;
   margin: 0 0 1rem 0;
 
+  @include mediumPlus() {
+    grid-auto-flow: column;
+  }
+
   li {
     margin: 0;
     padding: 0;
-    justify-self: center;
+
+    @include mediumPlus() {
+      justify-self: center;
+    }
   }
 
-  a {
+  li:not(:last-child) > *:first-child {
     color: var(--hbr-shocking-pink);
     text-decoration: none;
     position: relative;
@@ -62,11 +118,19 @@
       content: '';
       position: absolute;
       background-color: currentColor;
-      height: 2px;
-      width: 0px;
-      right: 0;
+      height: 0px;
+      width: 2px;
+      left: -10px;
+      right: auto;
       bottom: 0;
       transition: width 200ms ease-in-out;
+
+      @include mediumPlus() {
+        height: 2px;
+        width: 0px;
+        left: auto;
+        right: 0;
+      }
     }
 
     &.active,
@@ -74,8 +138,34 @@
       color: var(--hbr-dark-pink);
 
       &::after {
-        width: 100%;
+        height: 100%;
+
+        @include mediumPlus() {
+          width: 100%;
+        }
       }
+    }
+  }
+
+  .special {
+    display: block;
+    position: relative;
+    background-color: var(--hbr-shocking-pink);
+    color: var(--hbr-white);
+    padding: 10px;
+    text-decoration: none;
+
+    transition: background-color 200ms ease, transform 200ms ease;
+
+    svg {
+      vertical-align: middle;
+      margin-right: 5px;
+      margin-top: -3px;
+    }
+
+    &:hover {
+      background-color: var(--hbr-dark-pink);
+      transform: translateY(-2px);
     }
   }
 

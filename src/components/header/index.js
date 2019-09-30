@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from 'gatsby';
 
 import style from './style.module.scss';
@@ -16,7 +17,8 @@ const Logo = ({ siteTitle, isHomePage }) => {
 
 const navMenu = [
   { title: 'Gallery', path: '/gallery' },
-  { title: 'Blog', path: '/blog' },
+  { title: 'Services', path: '/services' },
+  { title: 'Reviews', path: '/reviews' },
   { title: 'About', path: '/about' },
   { title: 'Contact', path: '/contact' },
 ];
@@ -24,13 +26,24 @@ const navMenu = [
 const Header = ({ siteTitle, location }) => {
   const { pathname } = location;
   const isHomePage = pathname === '/';
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <header className={`container ${style.header}`}>
+      <button
+        onClick={() => setOpen((currValue) => !currValue)}
+        type="button"
+        className={style.burger}
+      >
+        Menu
+      </button>
       <Logo isHomePage={isHomePage} siteTitle={siteTitle} />
-      <nav role="navigation" className={style.nav}>
+      <nav
+        role="navigation"
+        className={classNames(style.nav, { [style.showMenu]: isOpen })}
+      >
         <ul className={style.navList}>
-          {navMenu.map(navItem => (
+          {navMenu.map((navItem) => (
             <li key={navItem.title}>
               <Link
                 className={pathname === navItem.path ? style.active : ''}
@@ -40,6 +53,22 @@ const Header = ({ siteTitle, location }) => {
               </Link>
             </li>
           ))}
+          <li>
+            <a className={style.special} href="tel:07597081126">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 1024 1024"
+              >
+                <path
+                  fill="var(--hbr-white)"
+                  d="M704 640c-64 64-64 128-128 128s-128-64-192-128-128-128-128-192 64-64 128-128S256 64 192 64 0 256 0 256c0 128 131.5 387.5 256 512s384 256 512 256c0 0 192-128 192-192S768 576 704 640z"
+                />
+              </svg>
+              07597081126
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

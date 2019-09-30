@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -9,8 +9,38 @@ const propTypes = { data: PropTypes.object, showMore: PropTypes.bool };
 const defaultProps = { showMore: false };
 
 const Modal = ({ onClose, children }) => {
+  const modalRef = useRef();
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    function handleKeyPress(ev) {
+      if (ev.keyCode === 27) {
+        window.document.removeEventListener('keydown', handleKeyPress);
+        return onClose();
+      }
+
+      if (ev.type === 'click' && ev.target.classList.contains(style.inner)) {
+        modalRef.current.addEventListener('click', handleKeyPress);
+        return onClose();
+      }
+    }
+
+    window.document.documentElement.classList.add('no-scroll');
+    window.document.addEventListener('keydown', handleKeyPress);
+    modalRef.current.addEventListener('click', handleKeyPress);
+
+    return () => {
+      window.document.documentElement.classList.remove('no-scroll');
+      window.document.removeEventListener('keydown', handleKeyPress);
+      modalRef.current.addEventListener('click', handleKeyPress);
+    };
+  }, []);
+
   return (
-    <div className={style.modal}>
+    <div ref={modalRef} className={style.modal}>
       <button className={style.close} type="button" onClick={onClose}>
         &times;
       </button>
@@ -35,47 +65,40 @@ const Gallery = ({ data, showMore }) => {
   };
 
   return (
-    <section className={classNames('section', style.gallery)}>
-      <div className="container">
-        <h3>Gallery</h3>
-        <p className="lead">
-          Here are some photos of my work including Henna, Face painting,
-          Glitter tattoos and more.
+    <>
+      {data && data.edges && Boolean(data.edges.length) && (
+        <div className={style.media}>
+          {data.edges.map(({ node }, i) => (
+            <a
+              className={style.anchor}
+              key={node.localFile.childImageSharp.thumbnail.originalName}
+              onClick={openImage}
+              href={node.localFile.childImageSharp.medium.src}
+            >
+              <img
+                loading={i > 3 ? 'lazy' : 'auto'}
+                className={style.thumbnail}
+                width={node.localFile.childImageSharp.thumbnail.width}
+                height={node.localFile.childImageSharp.thumbnail.height}
+                src={node.localFile.childImageSharp.thumbnail.src}
+                data-src={node.localFile.childImageSharp.medium.src}
+                alt=""
+              />
+            </a>
+          ))}
+        </div>
+      )}
+      {isOpen && (
+        <Modal onClose={closeImage}>
+          <img src={selected} alt="" />
+        </Modal>
+      )}
+      {showMore && (
+        <p>
+          <Link to="/gallery">&raquo; View more</Link>
         </p>
-        {data && data.edges && Boolean(data.edges.length) && (
-          <div className={style.media}>
-            {data.edges.map(({ node }, i) => (
-              <a
-                className={style.anchor}
-                key={node.localFile.childImageSharp.thumbnail.originalName}
-                onClick={openImage}
-                href={node.localFile.childImageSharp.medium.src}
-              >
-                <img
-                  loading={i > 3 ? 'lazy' : 'auto'}
-                  className={style.thumbnail}
-                  width={node.localFile.childImageSharp.thumbnail.width}
-                  height={node.localFile.childImageSharp.thumbnail.height}
-                  src={node.localFile.childImageSharp.thumbnail.src}
-                  data-src={node.localFile.childImageSharp.medium.src}
-                  alt=""
-                />
-              </a>
-            ))}
-          </div>
-        )}
-        {isOpen && (
-          <Modal onClose={closeImage}>
-            <img src={selected} alt="" />
-          </Modal>
-        )}
-        {showMore && (
-          <p>
-            <Link to="/gallery">&raquo; View more</Link>
-          </p>
-        )}
-      </div>
-    </section>
+      )}
+    </>
   );
 };
 
