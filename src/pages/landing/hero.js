@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Gallery from './gallery';
 import style from './sass/hero.module.scss';
 
-const Hero = ({ data: { allWordpressWpServices, allWordpressWpMedia } }) => {
+const Hero = ({ data }) => {
   return (
     <section className={classNames('section', style.hero)}>
       <article className="container">
@@ -26,7 +26,7 @@ const Hero = ({ data: { allWordpressWpServices, allWordpressWpMedia } }) => {
           Here are some photos of my work including Henna, Face painting,
           Glitter tattoos and more.
         </p>
-        <Gallery data={allWordpressWpMedia} />
+        <Gallery data={data.allWordpressWpMedia} />
       </article>
 
       <article className="container">
@@ -39,37 +39,38 @@ const Hero = ({ data: { allWordpressWpServices, allWordpressWpMedia } }) => {
           Bookings are available for any seasonal, personal and corporate social
           events. If you would to know more, please get in touch.
         </p>
-        {console.log(allWordpressWpServices)}
-        {allWordpressWpServices && allWordpressWpServices.nodes && (
-          <ul className={style.serviceList}>
-            {allWordpressWpServices.nodes.map((service) => (
-              <li key={service.path}>
-                {get(
-                  service,
-                  'featured_media.localFile.childImageSharp.resize.src',
-                  false,
-                ) && (
-                  <img
-                    className={style.thumbnail}
-                    alt={service.title}
-                    src={
-                      service.featured_media.localFile.childImageSharp.resize
-                        .src
-                    }
+        {data &&
+          data.allWordpressWpServices &&
+          data.allWordpressWpServices.nodes && (
+            <ul className={style.serviceList}>
+              {data.allWordpressWpServices.nodes.map((service) => (
+                <li key={service.path}>
+                  {get(
+                    service,
+                    'featured_media.localFile.childImageSharp.resize.src',
+                    false,
+                  ) && (
+                    <img
+                      className={style.thumbnail}
+                      alt={service.title}
+                      src={
+                        service.featured_media.localFile.childImageSharp.resize
+                          .src
+                      }
+                    />
+                  )}
+                  <h4
+                    className={style.heading}
+                    dangerouslySetInnerHTML={{ __html: service.title }}
                   />
-                )}
-                <h4
-                  className={style.heading}
-                  dangerouslySetInnerHTML={{ __html: service.title }}
-                />
-                <div
-                  className={style.excerpt}
-                  dangerouslySetInnerHTML={{ __html: service.excerpt }}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
+                  <div
+                    className={style.excerpt}
+                    dangerouslySetInnerHTML={{ __html: service.excerpt }}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
       </article>
 
       {/* <article className={style.cover}></article> */}
