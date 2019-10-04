@@ -4,7 +4,10 @@
   display: grid;
 
   @include mediumPlus() {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
   }
 }
 
@@ -14,15 +17,12 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 235px;
-  height: 47px;
+  width: 100%;
+  max-width: 275px;
+  height: 65px;
   font-size: 1px;
   text-indent: -1000%;
   justify-self: center;
-
-  @include mediumPlus() {
-    margin: 1rem;
-  }
 
   a {
     text-decoration: none;
@@ -31,9 +31,16 @@
     height: 100%;
   }
 
+  @include verySmallOnly() {
+    background-position: center right;
+    height: 60px;
+  }
+
   @include mediumPlus() {
-    background-position: left center;
-    justify-self: start;
+    background-position: center;
+    width: 100%;
+    height: 100px;
+    margin: 1rem;
   }
 }
 
@@ -44,7 +51,8 @@
   width: 24px;
   font-size: 0px;
   height: 2px;
-  background: red;
+  background-color: var(--hbr-dark-pink);
+  color: var(--hbr-dark-pink);
   border: 0 none;
   top: 10px;
   cursor: pointer;
@@ -61,8 +69,8 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 2px;
-    background-color: red;
+    height: 3px;
+    background-color: currentColor;
   }
 
   &::before {
@@ -77,6 +85,9 @@
 .nav {
   @include smallOnly {
     display: none;
+    background-color: #f2f2f2;
+    margin-top: 1rem;
+    padding: 10px;
 
     &.showMenu {
       display: block;
@@ -86,6 +97,8 @@
 
 .navList {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 20px;
   list-style: none;
   font-size: 14px;
   font-weight: 500;
@@ -96,6 +109,7 @@
 
   @include mediumPlus() {
     grid-auto-flow: column;
+    grid-template-columns: auto-fit;
   }
 
   li {
@@ -107,30 +121,22 @@
     }
   }
 
-  li:not(:last-child) > *:first-child {
+  li:not(.special) > *:first-child {
     color: var(--hbr-shocking-pink);
     text-decoration: none;
     position: relative;
-    display: block;
+    display: inline-block;
     padding: 10px 0;
 
     &::after {
       content: '';
       position: absolute;
       background-color: currentColor;
-      height: 0px;
-      width: 2px;
-      left: -10px;
-      right: auto;
       bottom: 0;
-      transition: width 200ms ease-in-out;
-
-      @include mediumPlus() {
-        height: 2px;
-        width: 0px;
-        left: auto;
-        right: 0;
-      }
+      height: 2px;
+      width: 0px;
+      left: auto;
+      right: 0;
     }
 
     &.active,
@@ -138,9 +144,19 @@
       color: var(--hbr-dark-pink);
 
       &::after {
-        height: 100%;
+        width: 100%;
+      }
+    }
 
-        @include mediumPlus() {
+    @include mediumPlus() {
+      display: block;
+
+      &::after {
+        transition: width 200ms ease-in-out;
+      }
+
+      &:hover {
+        &::after {
           width: 100%;
         }
       }
@@ -148,24 +164,39 @@
   }
 
   .special {
-    display: block;
-    position: relative;
-    background-color: var(--hbr-shocking-pink);
-    color: var(--hbr-white);
-    padding: 10px;
-    text-decoration: none;
-
-    transition: background-color 200ms ease, transform 200ms ease;
-
-    svg {
-      vertical-align: middle;
-      margin-right: 5px;
-      margin-top: -3px;
+    @include smallOnly() {
+      grid-column: 1/-1;
+      border-top: 2px solid var(--hbr-light-gray);
+      padding-top: 20px;
+      margin-top: 10px;
     }
 
-    &:hover {
-      background-color: var(--hbr-dark-pink);
-      transform: translateY(-2px);
+    > * {
+      display: inline-block;
+      position: relative;
+      border: 1px solid currentColor;
+      border-radius: 20px;
+      color: var(--hbr-shocking-pink);
+      padding: 10px 15px;
+      text-decoration: none;
+
+      transition: background-color 200ms ease, color 200ms ease;
+
+      @include mediumPlus() {
+        display: block;
+        margin-top: -2px;
+      }
+
+      svg {
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-top: -3px;
+      }
+
+      &:hover {
+        background-color: var(--hbr-shocking-pink);
+        color: var(--hbr-white);
+      }
     }
   }
 

@@ -53,8 +53,8 @@ const Header = ({ siteTitle, location }) => {
               </Link>
             </li>
           ))}
-          <li>
-            <a className={style.special} href="tel:07597081126">
+          <li className={style.special}>
+            <a href="tel:07597081126">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
@@ -62,7 +62,7 @@ const Header = ({ siteTitle, location }) => {
                 viewBox="0 0 1024 1024"
               >
                 <path
-                  fill="var(--hbr-white)"
+                  fill="currentColor"
                   d="M704 640c-64 64-64 128-128 128s-128-64-192-128-128-128-128-192 64-64 128-128S256 64 192 64 0 256 0 256c0 128 131.5 387.5 256 512s384 256 512 256c0 0 192-128 192-192S768 576 704 640z"
                 />
               </svg>
