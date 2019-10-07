@@ -15,7 +15,7 @@ const Hero = ({ data }) => {
 
         <p className="lead">
           I love working with <strong>Henna</strong> and{' '}
-          <strong>Face painting</strong>. I also draw, sketch and paint in
+          <strong>Face painting</strong>. I also draw, sketch and paint in a
           variety of mediums covering subjects mostly from landscapes and
           abstract ideas.
         </p>
@@ -23,8 +23,8 @@ const Hero = ({ data }) => {
 
       <article className="container">
         <p>
-          Here are some photos of my work including Henna, Face painting,
-          Glitter tattoos and more.
+          Here are some photos of recent work including Henna, face painting,
+          glitter tattoos and more.
         </p>
         <Gallery data={data.allWordpressWpMedia} />
       </article>
@@ -36,8 +36,8 @@ const Hero = ({ data }) => {
           public appointments, events and parties.
         </p>
         <p>
-          Bookings are available for any seasonal, personal and corporate social
-          events. If you would to know more, please get in touch.
+          Bookings are available for any seasonal, personal, social and
+          corporate events. If you would like to know more; get in touch.
         </p>
         {data &&
           data.allWordpressWpServices &&

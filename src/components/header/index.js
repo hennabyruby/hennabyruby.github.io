@@ -33,9 +33,9 @@ const Header = ({ siteTitle, location }) => {
       <button
         onClick={() => setOpen((currValue) => !currValue)}
         type="button"
-        className={style.burger}
+        className={style.burgerButton}
       >
-        Menu
+        <span className={style.burger}>Menu</span>
       </button>
       <Logo isHomePage={isHomePage} siteTitle={siteTitle} />
       <nav
