@@ -9,7 +9,9 @@ const ServicesPage = ({ data, ...rest }) => (
   <Layout fluid {...rest}>
     <SEO title="Services | Henna &amp; Face paint by Ruby" />
     <div className="container">
-      <Services services={data.allWordpressWpServices} />
+      {data && data.allWordpressWpServices && (
+        <Services services={data.allWordpressWpServices} />
+      )}
     </div>
   </Layout>
 );

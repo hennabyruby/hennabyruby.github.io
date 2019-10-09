@@ -42,7 +42,9 @@ const Hero = ({ data }) => {
           corporate events. If you would like to know more; get in touch.
         </p>
 
-        <Services services={data.allWordpressWpServices} />
+        {data && data.allWordpressWpServices && (
+          <Services services={data.allWordpressWpServices} />
+        )}
       </article>
 
       {/* <article className={style.cover}></article> */}
