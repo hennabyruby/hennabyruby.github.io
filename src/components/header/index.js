@@ -16,11 +16,12 @@ const Logo = ({ siteTitle, isHomePage }) => {
 };
 
 const navMenu = [
+  // { title: '🎃 Halloween', path: '/halloween' },
   { title: 'Gallery', path: '/gallery' },
   { title: 'Services', path: '/services' },
   { title: 'Reviews', path: '/reviews' },
   { title: 'About', path: '/about' },
-  { title: 'Contact', path: '/contact' },
+  { title: 'Contact', path: '/contact' }
 ];
 
 const Header = ({ siteTitle, location }) => {
@@ -77,11 +78,11 @@ const Header = ({ siteTitle, location }) => {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 };
 
 export default memo(Header);
