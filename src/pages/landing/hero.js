@@ -26,7 +26,9 @@ const Hero = ({ data }) => {
           Here are some photos of recent work including Henna, face painting,
           glitter tattoos and more.
         </p>
-        <Gallery data={data.allWordpressWpMedia} />
+        {data && data.allWordpressWpMedia && (
+          <Gallery data={data.allWordpressWpMedia} />
+        )}
       </article>
 
       <article className="container">
