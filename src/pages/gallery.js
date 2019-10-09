@@ -8,7 +8,9 @@ import Gallery from './landing/gallery';
 const GalleryPage = ({ data, ...rest }) => (
   <Layout fluid {...rest}>
     <SEO title="Gallery | Henna &amp; Face paint by Ruby" />
-    <Gallery data={data.allWordpressWpMedia} />
+    <div className="container">
+      <Gallery data={data.allWordpressWpMedia} />
+    </div>
   </Layout>
 );
 

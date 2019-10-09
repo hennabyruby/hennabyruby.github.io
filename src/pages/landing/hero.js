@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import get from 'lodash-es/get';
 import classNames from 'classnames';
 
+import Services from '../../components/services';
 import Gallery from './gallery';
 import style from './sass/hero.module.scss';
 
@@ -39,38 +39,8 @@ const Hero = ({ data }) => {
           Bookings are available for any seasonal, personal, social and
           corporate events. If you would like to know more; get in touch.
         </p>
-        {data &&
-          data.allWordpressWpServices &&
-          data.allWordpressWpServices.nodes && (
-            <ul className={style.serviceList}>
-              {data.allWordpressWpServices.nodes.map((service) => (
-                <li key={service.path}>
-                  {get(
-                    service,
-                    'featured_media.localFile.childImageSharp.resize.src',
-                    false,
-                  ) && (
-                    <img
-                      className={style.thumbnail}
-                      alt={service.title}
-                      src={
-                        service.featured_media.localFile.childImageSharp.resize
-                          .src
-                      }
-                    />
-                  )}
-                  <h4
-                    className={style.heading}
-                    dangerouslySetInnerHTML={{ __html: service.title }}
-                  />
-                  <div
-                    className={style.excerpt}
-                    dangerouslySetInnerHTML={{ __html: service.excerpt }}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
+
+        <Services services={data.allWordpressWpServices} />
       </article>
 
       {/* <article className={style.cover}></article> */}
